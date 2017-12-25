@@ -1,5 +1,5 @@
 
-_sh:     file format elf32-i386
+_sh：     文件格式 elf32-i386
 
 
 Disassembly of section .text:
@@ -2606,12 +2606,10 @@ SYSCALL(uptime)
      dba:	b8 0e 00 00 00       	mov    $0xe,%eax
      dbf:	cd 40                	int    $0x40
      dc1:	c3                   	ret    
-
-00000dc2 <getptable>:
-SYSCALL(getptable)
-     dc2:	b8 16 00 00 00       	mov    $0x16,%eax
-     dc7:	cd 40                	int    $0x40
-     dc9:	c3                   	ret    
+     dc2:	66 90                	xchg   %ax,%ax
+     dc4:	66 90                	xchg   %ax,%ax
+     dc6:	66 90                	xchg   %ax,%ax
+     dc8:	66 90                	xchg   %ax,%ax
      dca:	66 90                	xchg   %ax,%ax
      dcc:	66 90                	xchg   %ax,%ax
      dce:	66 90                	xchg   %ax,%ax

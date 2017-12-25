@@ -1,5 +1,5 @@
 
-_usertests:     file format elf32-i386
+_usertests：     文件格式 elf32-i386
 
 
 Disassembly of section .text:
@@ -9095,12 +9095,10 @@ SYSCALL(uptime)
     393a:	b8 0e 00 00 00       	mov    $0xe,%eax
     393f:	cd 40                	int    $0x40
     3941:	c3                   	ret    
-
-00003942 <getptable>:
-SYSCALL(getptable)
-    3942:	b8 16 00 00 00       	mov    $0x16,%eax
-    3947:	cd 40                	int    $0x40
-    3949:	c3                   	ret    
+    3942:	66 90                	xchg   %ax,%ax
+    3944:	66 90                	xchg   %ax,%ax
+    3946:	66 90                	xchg   %ax,%ax
+    3948:	66 90                	xchg   %ax,%ax
     394a:	66 90                	xchg   %ax,%ax
     394c:	66 90                	xchg   %ax,%ax
     394e:	66 90                	xchg   %ax,%ax

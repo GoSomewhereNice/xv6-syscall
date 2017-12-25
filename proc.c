@@ -532,3 +532,8 @@ procdump(void)
     cprintf("\n");
   }
 }
+
+struct proc * getptable_proc(void){
+  return ptable.proc;
+}
+

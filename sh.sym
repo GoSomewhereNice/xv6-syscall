@@ -29,6 +29,7 @@
 00000da2 getpid
 00000820 parsepipe
 00000a70 parsecmd
+00000dd2 getpr
 00000450 backcmd
 000005f0 peek
 00000660 parseredirs

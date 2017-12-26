@@ -575,3 +575,21 @@ chpr( int pid, int priority)
     
     return pid;
 }
+
+int
+getpr(int pid)
+{
+  struct proc *p;
+
+  acquire(&ptable.lock);
+  cprintf("PID \t CMD \t PR\n");
+    for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
+      if(p->pid == pid){
+      cprintf("%d \t %s \t %d \n", p->pid, p->name, p->priority);
+      break;
+      }
+    }
+    release(&ptable.lock);
+
+    return pid;
+}

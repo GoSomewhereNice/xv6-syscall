@@ -35,7 +35,7 @@ main(int argc, char *argv[])
 
   if(argc < 3 ){
   19:	7f 13                	jg     2e <main+0x2e>
-    printf(2,"usage: nice pid priority\n" );
+    printf(2,"usage: setpr pid priority\n" );
   1b:	50                   	push   %eax
   1c:	50                   	push   %eax
   1d:	68 40 07 00 00       	push   $0x740
@@ -57,7 +57,7 @@ main(int argc, char *argv[])
   44:	83 c4 10             	add    $0x10,%esp
   47:	83 f8 14             	cmp    $0x14,%eax
   if(argc < 3 ){
-    printf(2,"usage: nice pid priority\n" );
+    printf(2,"usage: setpr pid priority\n" );
     exit();
   }
   pid = atoi ( argv[1] );
@@ -77,7 +77,7 @@ main(int argc, char *argv[])
   printf(1, " pid=%d, pr=%d\n", pid, priority );
   61:	50                   	push   %eax
   62:	56                   	push   %esi
-  63:	68 5a 07 00 00       	push   $0x75a
+  63:	68 5b 07 00 00       	push   $0x75b
   68:	6a 01                	push   $0x1
   6a:	e8 b1 03 00 00       	call   420 <printf>
   chpr ( pid, priority );
@@ -725,10 +725,12 @@ SYSCALL(chpr)
  36a:	b8 17 00 00 00       	mov    $0x17,%eax
  36f:	cd 40                	int    $0x40
  371:	c3                   	ret    
- 372:	66 90                	xchg   %ax,%ax
- 374:	66 90                	xchg   %ax,%ax
- 376:	66 90                	xchg   %ax,%ax
- 378:	66 90                	xchg   %ax,%ax
+
+00000372 <getpr>:
+SYSCALL(getpr)
+ 372:	b8 18 00 00 00       	mov    $0x18,%eax
+ 377:	cd 40                	int    $0x40
+ 379:	c3                   	ret    
  37a:	66 90                	xchg   %ax,%ax
  37c:	66 90                	xchg   %ax,%ax
  37e:	66 90                	xchg   %ax,%ax

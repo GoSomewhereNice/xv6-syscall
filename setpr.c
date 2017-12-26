@@ -9,7 +9,7 @@ main(int argc, char *argv[])
   int priority, pid;
 
   if(argc < 3 ){
-    printf(2,"usage: nice pid priority\n" );
+    printf(2,"usage: setpr pid priority\n" );
     exit();
   }
   pid = atoi ( argv[1] );

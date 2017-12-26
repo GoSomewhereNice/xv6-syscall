@@ -24,6 +24,7 @@
 000002aa mknod
 00000130 gets
 000002e2 getpid
+00000312 getpr
 000005f0 malloc
 000002f2 sleep
 00000272 pipe

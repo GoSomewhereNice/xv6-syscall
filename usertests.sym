@@ -32,6 +32,7 @@
 00003922 getpid
 00000a10 pipe1
 00002b40 iref
+00003952 getpr
 00003c30 malloc
 00003932 sleep
 00000200 exitiputtest

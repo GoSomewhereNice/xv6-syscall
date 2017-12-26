@@ -175,6 +175,7 @@ UPROGS=\
 	_wc\
 	_ps\
 	_setpr\
+	_getpr\
 	_zombie\
 
 fs.img: mkfs README $(UPROGS)

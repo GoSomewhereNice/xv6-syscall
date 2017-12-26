@@ -545,7 +545,7 @@ cps()
 
   // Loop over process table looking for process with pid.
   acquire(&ptable.lock);
-  cprintf("name \t pid \t state \t \t priority \n");
+  cprintf("CMD \t PID \t STATE \t \t PR \n");
   for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
 	if ( p->state == SLEEPING )
 	  cprintf("%s \t %d \t SLEEPING \t %d \n ", p->name, p->pid, p->priority);
@@ -558,4 +558,20 @@ cps()
   release(&ptable.lock);
 
   return 22;
+}
+int
+chpr( int pid, int priority)
+{
+  struct proc *p;
+
+  acquire(&ptable.lock);
+    for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
+      if(p->pid == pid ){
+        p->priority = priority;
+        break;
+      }
+    }
+    release(&ptable.lock);
+    
+    return pid;
 }

@@ -6,6 +6,7 @@
 #include "x86.h"
 #include "proc.h"
 #include "spinlock.h"
+#define NULL 0
 
 struct {
   struct spinlock lock;
@@ -323,6 +324,9 @@ void
 scheduler(void)
 {
   struct proc *p;
+  //add here
+  struct proc *p1;
+  //add here
   struct cpu *c = mycpu();
   c->proc = 0;
   
@@ -330,12 +334,27 @@ scheduler(void)
     // Enable interrupts on this processor.
     sti();
 
+    //add here
+    struct proc *highP = NULL;
+    //add here
+
     // Loop over process table looking for process to run.
     acquire(&ptable.lock);
     for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
       if(p->state != RUNNABLE)
         continue;
 
+      //add here
+      highP = p;
+      //choose one with highest priority.
+      for(p1 = ptable.proc; p1 < &ptable.proc[NPROC]; p1++){
+        if(p1->state != RUNNABLE)
+          continue;
+        if( highP->priority > p1->priority )
+          highP = p1;
+      }
+      p = highP;
+      //add here
       // Switch to chosen process.  It is the process's job
       // to release ptable.lock and then reacquire it
       // before jumping back to us.

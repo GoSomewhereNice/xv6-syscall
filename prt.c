@@ -25,14 +25,14 @@ main(int argc, char *argv[])
   for(k = 0; k < n; k++){
     id = fork();
     if(id<0){
-      printf(1, "%d failed in fork!\n",getpid() ,"\n");
+      //printf(1, "%d failed in fork!\n",getpid() ,"\n");
     }else if(id > 0){
-      printf(1, "Parent %d creating child %d\n",getpid(), id, "\n");
+      //printf(1, "Parent %d creating child %d\n",getpid(), id, "\n");
       wait();
     }else {
-      printf(1,"Child %d created\n",getpid(), "\n");
-      for(z=0; z<8000000.0; z+=d)
-        x = x + 3.14 * 89.64;
+      //printf(1,"Child %d created\n",getpid(), "\n");
+      for(z=0; z<99999999.0; z+=d)
+        x = x + 3.14 * 89.64 * 9087 / 6 * 8;
       break;
     }
   }

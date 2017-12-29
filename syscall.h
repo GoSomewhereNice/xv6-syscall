@@ -23,4 +23,3 @@
 #define SYS_cps    22
 #define SYS_chpr   23
 #define SYS_getpr  24
-#define SYS_prt 25

@@ -6,8 +6,8 @@
 int
 main(int argc, char *argv[])
 {
-  int k, n, id;
-  double x=0, z, d;
+  int n;
+  double d;
 
   if(argc < 2)
     n = 1;
@@ -20,21 +20,8 @@ main(int argc, char *argv[])
   else
     d = atoi (argv[2]);
 
-  x = 0;
-  id= 0;
-  for(k = 0; k < n; k++){
-    id = fork();
-    if(id<0){
-      //printf(1, "%d failed in fork!\n",getpid() ,"\n");
-    }else if(id > 0){
-      //printf(1, "Parent %d creating child %d\n",getpid(), id, "\n");
-      wait();
-    }else {
-      //printf(1,"Child %d created\n",getpid(), "\n");
-      for(z=0; z<99999999.0; z+=d)
-        x = x + 3.14 * 89.64 * 9087 / 6 * 8;
-      break;
+  for(;;){
+     d++;
     }
-  }
   exit();
 }
